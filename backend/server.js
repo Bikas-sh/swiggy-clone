@@ -3,6 +3,8 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import { connectDB } from './config/db.js';
 import foodRouter from './routes/foodRoute.js';
+import userRouter from './routes/userRoute.js'
+import 'dotenv/config'
 
 
 
@@ -21,7 +23,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 connectDB();
 
 //Api endpoint
-app.use('/api/food',foodRouter)
+app.use('/api/food',foodRouter);
+app.use('/images',express.static('uploads'))
+app.use('/api/user',userRouter)
+
 
 
 
